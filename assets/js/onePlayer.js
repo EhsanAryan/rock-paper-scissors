@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded" , () => {
 
     // Functions
     const handleSetRounds = () => {
-        const cnt = Number(roundInput.value);
+        const cnt = Math.ceil(Number(roundInput.value));
+        console.log(cnt);
         if(cnt < 1) {
             alert("Enter a number greater than 0!");
         } else {

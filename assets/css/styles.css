@@ -88,19 +88,19 @@
     transform: scale(1 , 1);
 }
 
-#round-input:in-range , #round-input:valid {
+#round-input:valid {
     border-color: green;
 }
 
-#round-input:in-range:focus , #round-input:valid:focus {
+#round-input:valid:focus {
     box-shadow: 0 0 0 0.25rem green;    
 }
 
-#round-input:out-of-range , #round-input:invalid {
+#round-input:invalid {
     border-color: red;
 }
 
-#round-input:out-of-range:focus , #round-input:invalid:focus {
+#round-input:invalid:focus {
     box-shadow: 0 0 0 0.25rem red;    
 }
 
