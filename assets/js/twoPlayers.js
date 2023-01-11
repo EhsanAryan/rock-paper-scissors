@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const roundInput = document.getElementById("round-input");
     const roundModal = document.getElementById("round-modal");
     const modalBox = document.getElementById("modal-box");
+    const user1ChoiceHeader = document.getElementById("user1-choice-header");
+    const user2ChoiceHeader = document.getElementById("user2-choice-header");
     const user1LastChoiceDiv = document.getElementById("user1-last-choice");
     const user2LastChoiceDiv = document.getElementById("user2-last-choice");
     const user1ScoreDiv = document.getElementById("user1-score-div");
@@ -109,7 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     rock1Btn.addEventListener("click", () => {
         user1Choice = 0;
-        user1LastChoiceDiv.innerHTML = "Rock";
+        user1LastChoiceDiv.innerHTML = "<div class='spinner-border spinner-border-size text-dark'><span class='visually-hidden'>Loading...</span></div>"
+        user1ChoiceHeader.classList.remove("text-success");
+        user2ChoiceHeader.classList.add("text-primary");
         for(let b of user1Btns) {
             b.classList.add("no-pointer-events");
         }
@@ -120,7 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     paper1Btn.addEventListener("click", () => {
         user1Choice = 1;
-        user1LastChoiceDiv.innerHTML = "Paper";
+        user1LastChoiceDiv.innerHTML = "<div class='spinner-border spinner-border-size text-dark'><span class='visually-hidden'>Loading...</span></div>"
+        user1ChoiceHeader.classList.remove("text-success");
+        user2ChoiceHeader.classList.add("text-primary");
         for(let b of user1Btns) {
             b.classList.add("no-pointer-events")
         }
@@ -131,7 +137,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     scissors1Btn.addEventListener("click", () => {
         user1Choice = 2;
-        user1LastChoiceDiv.innerHTML = "Scissors";
+        user1LastChoiceDiv.innerHTML = "<div class='spinner-border spinner-border-size text-dark'><span class='visually-hidden'>Loading...</span></div>"
+        user1ChoiceHeader.classList.remove("text-success");
+        user2ChoiceHeader.classList.add("text-primary");
         for(let b of user1Btns) {
             b.classList.add("no-pointer-events")
         }
@@ -143,6 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
     rock2Btn.addEventListener("click", () => {
         user2Choice = 0;
         user2LastChoiceDiv.innerHTML = "Rock";
+        user1LastChoiceDiv.innerHTML = (user1Choice === 0) ? "Rock" : (user1Choice === 1) ? "Paper" : "Scissors";
+        user2ChoiceHeader.classList.remove("text-primary");
+        user1ChoiceHeader.classList.add("text-success");
         handleSetScore();
         for(let b of user2Btns) {
             b.classList.add("no-pointer-events")
@@ -155,6 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
     paper2Btn.addEventListener("click", () => {
         user2Choice = 1;
         user2LastChoiceDiv.innerHTML = "Paper";
+        user1LastChoiceDiv.innerHTML = (user1Choice === 0) ? "Rock" : (user1Choice === 1) ? "Paper" : "Scissors";
+        user2ChoiceHeader.classList.remove("text-primary");
+        user1ChoiceHeader.classList.add("text-success");
         handleSetScore();
         for(let b of user2Btns) {
             b.classList.add("no-pointer-events")
@@ -167,6 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
     scissors2Btn.addEventListener("click", () => {
         user2Choice = 2;
         user2LastChoiceDiv.innerHTML = "Scissors";
+        user1LastChoiceDiv.innerHTML = (user1Choice === 0) ? "Rock" : (user1Choice === 1) ? "Paper" : "Scissors";
+        user2ChoiceHeader.classList.remove("text-primary");
+        user1ChoiceHeader.classList.add("text-success");
         handleSetScore();
         for(let b of user2Btns) {
             b.classList.add("no-pointer-events")

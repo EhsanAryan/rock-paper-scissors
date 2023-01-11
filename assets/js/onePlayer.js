@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded" , () => {
     const roundInput = document.getElementById("round-input");
     const roundModal = document.getElementById("round-modal");
     const modalBox = document.getElementById("modal-box");
+    const userChoiceHeader = document.getElementById("user-choice-header");
+    const pcChoiceHeader = document.getElementById("pc-choice-header");
     const userLastChoiceDiv = document.getElementById("user-last-choice");
     const pcLastChoiceDiv = document.getElementById("pc-last-choice");
     const userScoreDiv = document.getElementById("user-score-div");
@@ -92,7 +94,9 @@ document.addEventListener("DOMContentLoaded" , () => {
     }
 
     const handleScoring = () => {
-        pcLastChoiceDiv.innerHTML = "<div class='spinner-border text-dark'><span class='visually-hidden'>Loading...</span></div>"
+        userChoiceHeader.classList.remove("text-success");
+        pcChoiceHeader.classList.add("text-primary");
+        pcLastChoiceDiv.innerHTML = "<div class='spinner-border spinner-border-size text-dark'><span class='visually-hidden'>Loading...</span></div>"
         for(let b of chooseBtns) {
             b.classList.add("no-pointer-events");
         }
@@ -115,6 +119,8 @@ document.addEventListener("DOMContentLoaded" , () => {
             }
             handleSetScore();
             round += 1;
+            pcChoiceHeader.classList.remove("text-primary");
+            userChoiceHeader.classList.add("text-success");
             for(let b of chooseBtns) {
                 b.classList.remove("no-pointer-events");
             }
@@ -128,7 +134,7 @@ document.addEventListener("DOMContentLoaded" , () => {
                     finishModalBox.classList.add("show-modal-box");
                 }, 10);
             }
-        }, 500);
+        }, 400);
     }
 
     rockBtn.addEventListener("click", () => {
