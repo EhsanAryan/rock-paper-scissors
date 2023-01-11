@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap-5.2.1-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap-5.2.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Game</title>
+</head>
+
+<body>
+    <div class="position-fixed top-0 start-0 w-100 h-100 overflow-auto px-2 py-5
+    d-flex flex-column justify-content-start align-items-center">
+        <!-- Start Round Modal -->
+        <div class="myModal" id="round-modal">
+            <div class="modalBox p-2" id="modal-box">
+                <div class="d-flex flex-column justify-content-center align-items-start w-50">
+                    <label for="round-input" class="form-label">Enter the rounds :</label>
+                    <input type="number" min="1" class="form-control" id="round-input" value="1" required
+                        pattern="/^[0-9]+$/">
+                </div>
+                <button type="button" class="btn btn-success btn-lg mt-4" id="set-rounds-btn">
+                    Set
+                </button>
+            </div>
+        </div>
+        <!-- End Round Modal -->
+
+        <!-- Start Finish Modal -->
+        <div class="myModal finish-modal d-none" id="finish-modal">
+            <div class="modalBox finish-modal-box p-2" id="finish-modal-box">
+                <div class="row w-100 text-center fs-3">
+                    <div class="col-4 d-flex flex-column justify-content-center align-items-center 
+                    text-center">
+                        <span>Player 1 Score:</span>
+                        <span id="final-user1-score"></span>
+                    </div>
+                    <div class="col-4 d-flex flex-column justify-content-center align-items-center 
+                    text-center">
+                        <span>Player 2 Score:</span>
+                        <span id="final-user2-score"></span>
+                    </div>
+                    <div class="col-4 d-flex flex-column justify-content-center align-items-center 
+                    text-center">
+                        <span>Winner:</span>
+                        <span id="winner-span"></span>
+                    </div>
+                </div>
+                <div class="mt-4 mb-2 d-flex justify-content-center align-items-center w-100">
+                    <button type="button" class="btn btn-danger btn-lg mx-1" id="reset-btn">
+                        Reset Game
+                    </button>
+                    <a href="./index.html" class="btn btn-primary btn-lg mx-1">
+                        Back Home
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- End Finish Modal -->
+
+        <div class="choose-section row w-100">
+            <div class="col-6 player1-choose-section text-center">
+                <h1 class="mb-3">Player 1</h1>
+                <div class="d-flex flex-column justify-content-center align-items-center w-100">
+                    <button type="button" id="rock-btn1" class="choose-btn user1-btn btn btn-success btn-lg 
+                    d-block my-2 d-flex justify-content-center align-items-center">
+                        <span>Rock</span>
+                        <i class="fa-solid fa-hand-back-fist mx-3"></i>
+                    </button>
+                    <button type="button" id="paper-btn1" class="choose-btn user1-btn btn btn-success btn-lg 
+                    d-block my-2 d-flex justify-content-center align-items-center">
+                        <span>Paper</span>
+                        <i class="fa-solid fa-hand mx-3"></i>
+                    </button>
+                    <button type="button" id="scissors-btn1" class="choose-btn user1-btn btn btn-success btn-lg 
+                    d-block my-2 d-flex justify-content-center align-items-center">
+                        <span>Scissors</span>
+                        <i class="fa-solid fa-hand-scissors mx-3"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-6 player2-choose-section text-center">
+                <h1 class="mb-3">Player 2</h1>
+                <div class="d-flex flex-column justify-content-center align-items-center w-100">
+                    <button type="button" id="rock-btn2" class="choose-btn user2-btn btn btn-primary btn-lg 
+                    d-block my-2 d-flex justify-content-center align-items-center no-pointer-events">
+                        <span>Rock</span>
+                        <i class="fa-solid fa-hand-back-fist mx-3"></i>
+                    </button>
+                    <button type="button" id="paper-btn2" class="choose-btn user2-btn btn btn-primary btn-lg 
+                    d-block my-2 d-flex justify-content-center align-items-center no-pointer-events">
+                        <span>Paper</span>
+                        <i class="fa-solid fa-hand mx-3"></i>
+                    </button>
+                    <button type="button" id="scissors-btn2" class="choose-btn user2-btn btn btn-primary btn-lg 
+                    d-block my-2 d-flex justify-content-center align-items-center no-pointer-events">
+                        <span>Scissors</span>
+                        <i class="fa-solid fa-hand-scissors mx-3"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 mt-5 mb-2 d-flex justify-content-center align-items-center">
+            <div class="w-50 choices-section text-center
+            d-flex flex-column justify-content-center align-items-center">
+                <div class="mb-4">
+                    <div class="h2">Player 1 choice:</div>
+                    <div class="h3" id="user1-last-choice">-</div>
+                </div>
+                <div>
+                    <div class="h2">Player 2 choice:</div>
+                    <div class="h3" id="user2-last-choice">-</div>
+                </div>
+            </div>
+
+            <div class="w-50 score-section text-center
+            d-flex flex-column justify-content-center align-items-center">
+                <div class="mb-4">
+                    <div class="h2">Player 1 score:</div>
+                    <div class="h3" id="user1-score-div">0</div>
+                </div>
+                <div>
+                    <div class="h2">Player 2 score:</div>
+                    <div class="h3" id="user2-score-div">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/css/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/twoPlayers.js"></script>
+</body>
+
+</html>
