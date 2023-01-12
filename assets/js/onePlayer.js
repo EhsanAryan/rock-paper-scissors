@@ -182,6 +182,6 @@ document.addEventListener("DOMContentLoaded" , () => {
         setTimeout(() => {
             roundModal.classList.remove("fade-modal");
             modalBox.classList.remove("fade-modal-box");
-        }, 310);
+        }, 311);
     });
 });
