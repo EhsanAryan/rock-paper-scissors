@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded" , () => {
     const winnerSpan = document.getElementById("winner-span");
     const finalUserScoreSpan = document.getElementById("final-user-score");
     const finalPcScoreSpan = document.getElementById("final-pc-score");
+    const roundHeader = document.getElementById("round-header");
 
     // Functions
     const handleSetRounds = () => {
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded" , () => {
             alert("Enter a number greater than 0!");
         } else {
             allRounds = cnt;
+            roundHeader.innerHTML = `Round ${round}/${allRounds}`;
             roundModal.classList.add("fade-modal");
             modalBox.classList.add("fade-modal-box");
             setTimeout(() => {
@@ -135,6 +137,9 @@ document.addEventListener("DOMContentLoaded" , () => {
                     finishModalBox.classList.add("show-modal-box");
                 }, 10);
             }
+            else {
+                roundHeader.innerHTML = `Round ${round}/${allRounds}`;
+            }
         }, 400);
     }
 
@@ -167,6 +172,7 @@ document.addEventListener("DOMContentLoaded" , () => {
         pcLastChoiceDiv.innerHTML = "-";
         userScoreDiv.innerHTML = "0";
         pcScoreDiv.innerHTML = "0";
+        roundHeader.innerHTML = "Round";
         finishModal.classList.remove("show-modal");
         finishModalBox.classList.remove("show-modal-box");
         setTimeout(() => {

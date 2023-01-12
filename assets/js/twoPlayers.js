@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const winnerSpan = document.getElementById("winner-span");
     const finalUser1ScoreSpan = document.getElementById("final-user1-score");
     const finalUser2ScoreSpan = document.getElementById("final-user2-score");
+    const roundHeader = document.getElementById("round-header");
 
 
     // Functions
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Enter a number greater than 0!");
         } else {
             allRounds = cnt;
+            roundHeader.innerHTML = `Round ${round}/${allRounds}`;
             roundModal.classList.add("fade-modal");
             modalBox.classList.add("fade-modal-box");
             setTimeout(() => {
@@ -106,6 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 finishModal.classList.add("show-modal");
                 finishModalBox.classList.add("show-modal-box");
             }, 10);
+        }
+        else {
+            roundHeader.innerHTML = `Round ${round}/${allRounds}`;
         }
     }
 
@@ -204,6 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
         user2LastChoiceDiv.innerHTML = "-";
         user1ScoreDiv.innerHTML = "0";
         user2ScoreDiv.innerHTML = "0";
+        roundHeader.innerHTML = "Round";
         finishModal.classList.remove("show-modal");
         finishModalBox.classList.remove("show-modal-box");
         setTimeout(() => {
