@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             allRounds = cnt;
             roundHeader.innerHTML = `Round ${round}/${allRounds}`;
+            roundHeader.classList.add("opacity-100");
             roundModal.classList.add("fade-modal");
             modalBox.classList.add("fade-modal-box");
             setTimeout(() => {
@@ -105,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
             finalUser2ScoreSpan.innerHTML = user2Score.toString();
             finishModal.classList.remove("d-none");
             setTimeout(() => {
-                finishModal.classList.add("show-modal");
+                finishModal.classList.add("opacity-100");
                 finishModalBox.classList.add("show-modal-box");
             }, 10);
         }
@@ -209,8 +210,8 @@ document.addEventListener("DOMContentLoaded", () => {
         user2LastChoiceDiv.innerHTML = "-";
         user1ScoreDiv.innerHTML = "0";
         user2ScoreDiv.innerHTML = "0";
-        roundHeader.innerHTML = "Round";
-        finishModal.classList.remove("show-modal");
+        roundHeader.classList.remove("opacity-100");
+        finishModal.classList.remove("opacity-100");
         finishModalBox.classList.remove("show-modal-box");
         setTimeout(() => {
             finishModal.classList.add("d-none");

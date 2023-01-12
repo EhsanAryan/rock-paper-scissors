@@ -43,14 +43,6 @@
     opacity: 0;
 }
 
-.finish-modal {
-    opacity: 0;
-}
-
-.show-modal {
-    opacity: 1;
-}
-
 .modalBox{
     width: 50%;
     min-height: 250px;
@@ -112,6 +104,10 @@
     border-width: 3px;
     width: 35px;
     height: 35px;
+}
+
+#round-header {
+    transition: all 0.4s;
 }
 /* End player pages styles */
 
